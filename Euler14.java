@@ -3,10 +3,14 @@ import java.util.Arrays;
 public class Euler14 {
     public static void main(String[] args) {
         int currLen = 0;
-        int currNum = 1;
-        int[] seqLenArr = new int[35];
+        long currNum = 1;
+        // The index is the number n and the value at the index is the sequence length
+        // for n
+        int[] seqLenArr = new int[1000001];
+        // 1 has a sequence length of 1
         seqLenArr[1] = 1;
 
+        // for each number we want to check
         for (int i = 2; i < seqLenArr.length; i++) {
             currNum = i;
             int lengthToAdd = 0;
@@ -18,7 +22,8 @@ public class Euler14 {
                     currNum = currNum * 3 + 1;
                 }
             }
-            seqLenArr[i] = seqLenArr[currNum] + lengthToAdd;
+
+            seqLenArr[i] = seqLenArr[(int) currNum] + lengthToAdd;
 
             if (seqLenArr[i] > currLen) {
                 currLen = seqLenArr[i];
